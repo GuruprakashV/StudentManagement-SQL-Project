@@ -1,0 +1,74 @@
+-- Students table Values --
+INSERT INTO students (first_name, last_name, date_of_birth, Gender, email, phone_number, address)
+VALUES
+('John', 'Doe', '2000-01-15', 'Male', 'john.doe@example.com', '123-456-7890', '123 Elm St, Springfield'),
+('Jane', 'Smith', '1999-02-20', 'Female', 'jane.smith@example.com', '234-567-8901', '456 Oak St, Shelbyville'),
+('Alice', 'Johnson', '2001-03-25', 'Female', 'alice.johnson@example.com', '345-678-9012', '789 Pine St, Capital City'),
+('Bob', 'Brown', '2000-04-30', 'Male', 'bob.brown@example.com', '456-789-0123', '101 Maple St, Springfield'),
+('Charlie', 'Davis', '1998-05-05', 'Male', 'charlie.davis@example.com', '567-890-1234', '202 Birch St, Shelbyville'),
+('Diana', 'Clark', '1999-06-10', 'Female', 'diana.clark@example.com', '678-901-2345', '303 Cedar St, Capital City'),
+('Eve', 'Miller', '2001-07-15', 'Female', 'eve.miller@example.com', '789-012-3456', '404 Elm St, Springfield'),
+('Frank', 'Wilson', '2000-08-20', 'Male', 'frank.wilson@example.com', '890-123-4567', '505 Oak St, Shelbyville'),
+('Grace', 'Moore', '1999-09-25', 'Female', 'grace.moore@example.com', null,'606 Pine St, Capital City'),
+('Hank', 'Taylor', '1998-10-30', 'Male', 'hank.taylor@example.com', '012-345-6789', '707 Maple St, Springfield'),
+('Ivy', 'Anderson', '2001-11-05', 'Female', 'ivy.anderson@example.com', null,'808 Birch St, Shelbyville'),
+('Jack', 'Thomas', '2000-12-10', 'Male', 'jack.thomas@example.com', '234-567-8902', '909 Cedar St, Capital City'),
+('Kathy', 'Jackson', '1999-01-15', 'Female', 'kathy.jackson@example.com', '345-678-9013', '101 Elm St, Springfield'),
+('Leo', 'White', '2001-02-20', 'Male', 'leo.white@example.com', '456-789-0124', '202 Oak St, Shelbyville'),
+('Mia', 'Harris', '1998-03-25', 'Female', 'mia.harris@example.com', '567-890-1235', '303 Pine St, Capital City');
+
+-- courses table values --
+INSERT INTO Courses (course_name, course_description, credit_hours)
+VALUES 
+('Fullstack Developer', 'Designs and develops both front-end and back-end web applications', 6),
+('Could Computing', 'Utilizing remote servers to store, manage, and process data', 5),
+('Data Analayst', 'Analyzes data, provides insights, and creates reports for decision-making', 4),
+('Front end Developer', 'Designs and builds user interfaces for websites and web applications', 3),
+('UI/UX', 'Designing intuitive interfaces for better user interaction and experience', 3),
+('Artificial Intelligence', 'AI: Computer systems simulating human intelligence for problem-solving and learning', 7);
+
+-- enrollement table values --
+INSERT INTO Enrollment (student_id, course_id, enrollment_date)
+VALUES 
+(5, 3, '2020-08-01'), 
+(4, 5, '2020-05-21'),  
+(6, 5, '2021-04-11'),  
+(3, 3, '2023-03-15'),  
+(7, 1, '2022-08-19'),  
+(15, 4, '2021-04-18'),  
+(8, 3,'2024-09-05'),  
+(11, 4, '2024-10-09'),  
+(10, 1, '2023-12-10'),  
+(1, 4, '2024-11-11'),
+(3, 1, '2021-04-18'),  
+(12, 5, '2024-09-05'),  
+(5, 2, '2024-10-09'),  
+(13, 1,'2023-12-10'),  
+(14, 2, '2024-11-11');  
+
+
+-- instructors table values --
+INSERT INTO Instructors (first_name, last_name, email, phone_number)
+VALUES 
+('Alice', 'Johnson', 'alice.johnson@example.com', '1112223333'),
+('Bob', 'Miller', 'bob.miller@example.com', '2223334444'),
+('Carol', 'Garcia', 'carol.garcia@example.com', '3334445555'),
+('David', 'Martinez', 'david.martinez@example.com', '4445556666'),
+('Eve', 'Rodriguez', 'eve.rodriguez@example.com', '5556667777'),
+('Miller', 'Johnson', 'miller.johnson@example.com', '1150223333'),
+('Johnson', 'Miller', 'johnson.miller@example.com', '2236334444');
+
+
+-- courseassignments values --
+INSERT INTO CourseAssignments (course_id, instructor_id)
+VALUES 
+(4,5),
+(2,1),
+(1,3),
+(2,1),
+(3,2),
+(2,1),
+(1,3),
+(3,2),
+(1,3),
+(5,4);
