@@ -1,0 +1,70 @@
+select * from students;
+select * from courses;
+select * from enrollment;
+select * from instructors;
+select * from courseassignments;
+
+use studentmanagement;
+
+/* 1.)Retrieve the full names and email addresses of 
+ all students enrolled in the Could computing course.*/
+select s.first_name,s.last_name,s.email
+from Students As s
+inner join Enrollment As e on s.student_id = e.student_id
+inner join Courses As c on e.course_id = c.course_id
+where c.course_name = "could computing";
+
+/* 2.)List all courses along with the 
+number of students enrolled in each course.*/
+select c.course_name, 
+count(e.student_id) As number_of_student
+from Courses As c left join
+Enrollment As e ON c.course_id = e.course_id
+group by c.course_id;
+
+
+/* 3.)Find the instructors who are teaching more than 2 courses.*/
+select i.first_name,i.last_name, 
+count(ca.course_id) AS courses_count
+from Instructors As i inner join CourseAssignments As ca 
+on i.instructor_id = ca.instructor_id
+group by i.instructor_id having count(ca.course_id) > 2;
+
+/* 4.)Retrieve the details of students (name, email) 
+who are enrolled in a course taught by Instructor Name.*/
+select concat(s.first_name,' ',s.last_name) As Names,
+s.email,concat(i.first_name,' ',i.last_name) As Instructor_name
+from students As s inner join enrollment As e on s.student_id = e.student_id
+inner join courses As c on c.course_id = e.course_id
+inner join courseassignments As ca on c.course_id = ca.course_id
+inner join instructors As i on i.instructor_id = ca.instructor_id;
+
+/* 5.)List all students who have not enrolled in any course.*/
+select s.first_name,s.last_name from Students As s
+left join Enrollment As e ON s.student_id = e.student_id
+where e.enrollment_id IS NULL;
+
+/* 6.)Get the list of courses with no assigned instructor.*/
+select course_name from Courses As c
+left join CourseAssignments As ca ON c.course_id = ca.course_id
+where ca.assignment_id IS NULL;
+
+/*7.)Retrieve the full details of the Students table,
+ sorted by last name in alphabetical order.*/
+select * from Students order by last_name;
+
+/*8.)Find the total number of credit hours for a student enrolled 
+in the Data Analayst and Fullstack Developer courses.*/
+select sum(c.credit_hours) AS total_credit_hours from Students As s 
+inner join Enrollment As e ON s.student_id = e.student_id
+inner join Courses As c ON e.course_id = c.course_id
+where c.course_name in ('Data Analayst','Fullstack Developer');
+
+/*9.)Identify the student with the maximum number of enrollments.*/
+select s.first_name, s.last_name, count(e.course_id) AS enrollment_count
+from Students As s
+inner join Enrollment As e ON s.student_id = e.student_id
+group by s.student_id order by enrollment_count desc;
+
+/*10.)Get the details of students whose phone numbers are missing.*/
+select * from Students where phone_number IS NULL;
